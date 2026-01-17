@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-white/1"></div>
 
       {/* Content layer */}
-      <div className="hero-content relative z-10 flex flex-col w-2/3 h-full justify-center items-center pt-20 px-10">
+      <div className="hero-content relative z-10 flex flex-col w-full md:w-2/3 h-full justify-center items-center md:items-start pt-20 px-10">
         <h1 className="font-serif font-bold text-7xl text-green-700">
           Integrated <span className="text-yellow-600">Livestock</span> Service Delivery
         </h1>
