@@ -7,6 +7,7 @@ import Impact from "../components/home/Impact";
 import Latest_News from "../components/home/Latest_News";
 import Contact from "../components/home/Contact";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 
 const Home = () => {
@@ -34,6 +35,9 @@ const Home = () => {
             <section id="contact">
                 <Contact />
             </section>
+            
+            <Footer />
+            
         </div>
     )
 }
