@@ -6,3 +6,12 @@ theme {
   --font-body-bold: "Quicksand", sans-serif;
   --font-heading-bold: "Asul", monospace;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}

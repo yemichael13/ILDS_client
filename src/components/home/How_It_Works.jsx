@@ -58,7 +58,7 @@ const How_It_Works = () => {
               <img
                 src={item.image}
                 alt={item.label}
-                className="w-40 h-40 mx-auto mb-4 object-contain"
+                className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 object-contain"
               />
               <p className="text-md font-medium">{item.label}</p>
             </div>

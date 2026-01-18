@@ -14,7 +14,7 @@ const Why_ILSD = () => {
       </div>
 
       {/* Right: Benefits List */}
-      <div className="w-full lg:w-1/2 lg:pl-10 ml-10">
+      <div className="w-full lg:w-1/2 lg:pl-10 px-4 lg:ml-10">
         <h2 className="text-5xl font-bold text-gray-800 mb-6">Why ILSD?</h2>
         <ul className="space-y-4 text-lg text-gray-700">
           <li className="flex items-start">

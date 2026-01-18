@@ -18,8 +18,8 @@ const Footer = () => {
                 alt="Cow"
                 className="absolute inset-0 w-full h-full object-cover z-0 blur-sm"
             />
-            <div className="relative z-10 h-full flex ">
-                <div className="flex flex-col w-1/3 md:w-1/2 mx-4 md:mx-0 items-center ">
+            <div className="relative z-10 h-full flex flex-col md:flex-row">
+                <div className="flex flex-col w-full md:w-1/2 md:mb-0 mb-4 items-center ">
                 <a href="/" className="cursor-pointer object-contain rounded-full">
                     <img src={Logo} alt="logo" className="md:w-50 w-20 md:h-50 h-20 rounded-full mt-10" />
                 </a>
@@ -31,7 +31,7 @@ const Footer = () => {
                     </div>
                     
                 </div>
-                <div className="w-1/2 flex md:gap-20 gap-5 justify-center items-center">
+                <div className="w-full md:w-1/2 flex md:gap-20 gap-5 justify-center items-center px-4">
                     <div className=" border-r-2 border-r-white md:px-6 px-3 py-1 md:py-3">
                         <h3 className="md:text-3xl text-2xl text-white font-bold mb-4">Quick Links</h3>
                             <ul className="flex flex-col gap-2 font-semibold text-sm text-white">
@@ -60,9 +60,9 @@ const Footer = () => {
             </div>
             
         </div>
-        <div className="flex justify-center items-center my-10 md:hidden">
-                    <input type="email" name="email" placeholder="Your email" className="rounded-l-2xl bg-white border  border-green-700 py-2 px-4" />
-                    <button className="bg-green-700 text-white font-semibold rounded-r-2xl py-2 px-4 hover:bg-white  hover:text-green-700 transition-colors duration-300 cursor-pointer border border-green-700">Subscribe</button>
+        <div className="flex justify-center items-center my-10 md:hidden px-4">
+                    <input type="email" name="email" placeholder="Your email" className="rounded-l-2xl bg-white border border-green-700 py-2 px-4 max-w-[200px] flex-1" />
+                    <button className="bg-green-700 text-white font-semibold rounded-r-2xl py-2 px-4 hover:bg-white hover:text-green-700 transition-colors duration-300 cursor-pointer border border-green-700 whitespace-nowrap">Subscribe</button>
                     </div>
         <div className="bg-white w-full p-2 flex justify-around">
             <p className="font-light text-center">&copy; {new Date().getFullYear()} Integrated Livestock Delivery Service </p><p className="font-light text-center">All Rights Reserved.</p>
