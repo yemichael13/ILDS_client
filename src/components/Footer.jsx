@@ -36,7 +36,7 @@ const Footer = () => {
                         <h3 className="md:text-3xl text-2xl text-white font-bold mb-4">Quick Links</h3>
                             <ul className="flex flex-col gap-2 font-semibold text-sm text-white">
                                 <li ><Link to="/news" className="cursor-pointer hover:text-green-700 transition-colors duration-300">News & Updates</Link></li>
-                                <li ><Link to="/home" className="cursor-pointer hover:text-green-700 transition-colors duration-300">Home</Link></li>
+                                <li ><Link to="/" className="cursor-pointer hover:text-green-700 transition-colors duration-300">Home</Link></li>
                                 <li ><Link to="/about" className="cursor-pointer hover:text-green-700 transition-colors duration-300">About</Link></li>
                                 <li ><Link to="/services" className="cursor-pointer hover:text-green-700 transition-colors duration-300">Services</Link></li>
                                 <li ><Link to="/faq" className="cursor-pointer hover:text-green-700 transition-colors duration-300">FAQ</Link></li>

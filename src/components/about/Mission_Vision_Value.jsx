@@ -76,13 +76,13 @@ const Mission_Vision_Value = () => {
       {/* Mission & Vision */}
       <div className="relative z-10 my-10 md:mx-20 mx-4 flex flex-col gap-4 p-4 md:p-6 rounded-xl ">
         <h2 className="font-bold text-4xl text-center">Mission & Vision</h2>
-        <p className="text-gray-800">
+        <p className="text-gray-800 md:text-xl">
           <span className="font-bold">Our Mission</span> is to empower farmers
           with quick and dependable access to animal health and breeding
           services by leveraging digital tools, skilled professionals, and smart
           agricultural systems.
         </p>
-        <p className="text-gray-800">
+        <p className="text-gray-800 md:text-xl">
           <span className="font-bold">Our Vision</span> is to build Ethiopia’s
           leading digital livestock service ecosystem—one that increases
           productivity, supports sustainable farming, and improves the
