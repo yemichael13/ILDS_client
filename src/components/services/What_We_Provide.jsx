@@ -71,7 +71,7 @@ const What_We_Provide = () => {
           320: { slidesPerView: 1, spaceBetween: 20 },
           768: { slidesPerView: 2, spaceBetween: 30 },
         }}
-        className="max-w-6xl mx-auto"
+        className="max-w-6xl mx-auto services-provide-swiper pt-10"
       >
         {services.map((service, index) => (
           <SwiperSlide key={index}>

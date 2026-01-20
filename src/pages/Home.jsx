@@ -8,37 +8,57 @@ import Latest_News from "../components/home/Latest_News";
 import Contact from "../components/home/Contact";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PageMotion from "../components/motion/PageMotion";
+import Reveal from "../components/motion/Reveal";
 
 
 const Home = () => {
     return (
-        <div>
-            <Navbar />
+      <div>
+        <Navbar />
+        <PageMotion>
+            
             <section id="hero">
-                <Hero />
+                <Reveal>
+                  <Hero />
+                </Reveal>
             </section>
             <section id="what_we_do">
-                <What_We_Do />
+                <Reveal>
+                  <What_We_Do />
+                </Reveal>
             </section>
             <section id="why_ilsd">
-                <Why_ILSD />
+                <Reveal>
+                  <Why_ILSD />
+                </Reveal>
             </section>
             <section id="how_it_works">
-                <How_It_Works />
+                <Reveal>
+                  <How_It_Works />
+                </Reveal>
             </section>
             <section id="impact">
-                <Impact />
+                <Reveal>
+                  <Impact />
+                </Reveal>
             </section>
             <section id="lates_news">
-                <Latest_News />
+                <Reveal>
+                  <Latest_News />
+                </Reveal>
             </section>
             <section id="contact">
-                <Contact />
+                <Reveal>
+                  <Contact />
+                </Reveal>
             </section>
             
             <Footer />
             
-        </div>
+        </PageMotion>
+      </div>
+        
     )
 }
 

@@ -1,5 +1,6 @@
-import React, {useMemo, useEffect} from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -16,12 +17,12 @@ const ScrollToTop = () => {
   return null;
 };
 
-function App() {
+const AnimatedRoutes = () => {
+  const location = useLocation();
 
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
@@ -29,6 +30,16 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+    </AnimatePresence>
+  );
+};
+
+function App() {
+
+  return (
+    <Router>
+      <ScrollToTop />
+      <AnimatedRoutes />
         
     </Router>
   )

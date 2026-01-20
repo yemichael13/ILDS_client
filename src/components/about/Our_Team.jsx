@@ -31,17 +31,17 @@ const Our_Team = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="relative aspect-square rounded-full overflow-hidden shadow-lg flex flex-col items-center justify-center text-center w-32 sm:w-40 md:w-48"
+              className="group relative aspect-square rounded-full overflow-hidden shadow-lg flex flex-col items-center justify-center text-center w-32 sm:w-40 md:w-48"
             >
               {/* Profile image */}
               <img
                 src={Profile}
                 alt={member.name}
-                className="absolute inset-0 w-full h-full object-cover z-0"
+                className="absolute inset-0 w-full h-full object-cover z-0 transition duration-300 group-hover:brightness-75"
               />
 
               {/* Overlay text */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-semibold bg-black/30 px-4">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-semibold bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 px-4">
                 <h3 className="text-sm sm:text-base md:text-lg">{member.name}</h3>
                 <p className="text-xs sm:text-sm">{member.position}</p>
               </div>

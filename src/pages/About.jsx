@@ -5,25 +5,39 @@ import Who_We_Are from "../components/about/Who_We_Are";
 import Mission_Vision_Value from "../components/about/Mission_Vision_Value";
 import Service_Area from "../components/about/Service_Area";
 import Our_Team from "../components/about/Our_Team";
+import PageMotion from "../components/motion/PageMotion";
+import Reveal from "../components/motion/Reveal";
 
 const About = () => {
     return (
-        <div>
-            <Navbar />
+      <div>
+        <Navbar />
+          <PageMotion>
+            
             <section id="who_we_are">
-                <Who_We_Are />
+                <Reveal>
+                  <Who_We_Are />
+                </Reveal>
             </section>
             <section id="mission">
-                <Mission_Vision_Value />
+                <Reveal>
+                  <Mission_Vision_Value />
+                </Reveal>
             </section>
             <section id="service-area">
-                <Service_Area />
+                <Reveal>
+                  <Service_Area />
+                </Reveal>
             </section>
             <section id="our-team">
-                <Our_Team />
+                <Reveal>
+                  <Our_Team />
+                </Reveal>
             </section>
             <Footer />
-        </div>
+        </PageMotion>
+      </div>
+        
     )
 }
 
