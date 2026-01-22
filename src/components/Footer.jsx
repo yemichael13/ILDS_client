@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Cow from "../assets/images/cow2.jpg";
 import Logo from "../assets/images/logo_live.png";
 import { Link } from "react-router-dom";
@@ -7,30 +7,91 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
+import { newsletterAPI } from "../utils/api";
 
 
 const Footer = () => {
-    return (
-        <section>
-                <div className="relative overflow-hidden w-full">
-            <img
-                src={Cow}
-                alt="Cow"
-                className="absolute inset-0 w-full h-full object-cover z-0 blur-sm"
-            />
-            <div className="relative z-10 h-full flex flex-col md:flex-row">
-                <div className="flex flex-col w-full md:w-1/2 md:mb-0 mb-4 items-center ">
-                <a href="/" className="cursor-pointer object-contain rounded-full">
-                    <img src={Logo} alt="logo" className="md:w-50 w-20 md:h-50 h-20 rounded-full mt-10" />
-                </a>
-                    
-                    <h3 className="text-green-700 font-bold md:font-black tedt-xl md:text-3xl text-center">Integrated Livestock<br />Delivery Service</h3>
-                    <div className="md:flex md:justify-center md:items-center md:my-10 hidden">
-                    <input type="email" name="email" placeholder="Your email" className="rounded-l-2xl bg-white border  border-green-700 py-2 px-4" />
-                    <button className="bg-green-700 text-white font-semibold rounded-r-2xl py-2 px-4 hover:bg-white  hover:text-green-700 transition-colors duration-300 cursor-pointer border border-green-700">Subscribe</button>
-                    </div>
-                    
-                </div>
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState(null); // 'success', 'error', or null
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      setStatus("error");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setStatus(null);
+      await newsletterAPI.subscribe(email);
+      setStatus("success");
+      setEmail("");
+      setTimeout(() => setStatus(null), 3000);
+    } catch (error) {
+      setStatus("error");
+      setTimeout(() => setStatus(null), 3000);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section>
+      <div className="relative overflow-hidden w-full">
+        <img
+          src={Cow}
+          alt="Cow"
+          className="absolute inset-0 w-full h-full object-cover z-0 blur-sm"
+        />
+        <div className="relative z-10 h-full flex flex-col md:flex-row">
+          <div className="flex flex-col w-full md:w-1/2 md:mb-0 mb-4 items-center ">
+            <a href="/" className="cursor-pointer object-contain rounded-full">
+              <img
+                src={Logo}
+                alt="logo"
+                className="md:w-50 w-20 md:h-50 h-20 rounded-full mt-10"
+              />
+            </a>
+
+            <h3 className="text-green-700 font-bold md:font-black tedt-xl md:text-3xl text-center">
+              Integrated Livestock
+              <br />
+              Delivery Service
+            </h3>
+            <form
+              onSubmit={handleSubscribe}
+              className="md:flex md:justify-center md:items-center md:my-10 hidden"
+            >
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email"
+                className="rounded-l-2xl bg-white border border-green-700 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="bg-green-700 text-white font-semibold rounded-r-2xl py-2 px-4 hover:bg-white hover:text-green-700 transition-colors duration-300 cursor-pointer border border-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? "..." : "Subscribe"}
+              </button>
+            </form>
+            {status === "success" && (
+              <p className="text-green-200 text-sm mt-2 hidden md:block">
+                Subscribed successfully!
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-200 text-sm mt-2 hidden md:block">
+                Subscription failed. Please try again.
+              </p>
+            )}
+          </div>
                 <div className="w-full md:w-1/2 flex md:gap-20 gap-5 justify-center items-center px-4">
                     <div className=" border-r-2 border-r-white md:px-6 px-3 py-1 md:py-3">
                         <h3 className="md:text-3xl text-2xl text-white font-bold mb-4">Quick Links</h3>
@@ -60,10 +121,37 @@ const Footer = () => {
             </div>
             
         </div>
-        <div className="flex justify-center items-center my-10 md:hidden px-4">
-                    <input type="email" name="email" placeholder="Your email" className="rounded-l-2xl bg-white border border-green-700 py-2 px-4 max-w-[200px] flex-1" />
-                    <button className="bg-green-700 text-white font-semibold rounded-r-2xl py-2 px-4 hover:bg-white hover:text-green-700 transition-colors duration-300 cursor-pointer border border-green-700 whitespace-nowrap">Subscribe</button>
-                    </div>
+          <form
+            onSubmit={handleSubscribe}
+            className="flex justify-center items-center my-10 md:hidden px-4"
+          >
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email"
+              className="rounded-l-2xl bg-white border border-green-700 py-2 px-4 max-w-[200px] flex-1 focus:outline-none focus:ring-2 focus:ring-green-500"
+              required
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-green-700 text-white font-semibold rounded-r-2xl py-2 px-4 hover:bg-white hover:text-green-700 transition-colors duration-300 cursor-pointer border border-green-700 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "..." : "Subscribe"}
+            </button>
+          </form>
+          {status === "success" && (
+            <p className="text-green-200 text-sm text-center md:hidden mb-4">
+              Subscribed successfully!
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-red-200 text-sm text-center md:hidden mb-4">
+              Subscription failed. Please try again.
+            </p>
+          )}
         <div className="bg-white w-full p-2 flex justify-around">
             <p className="font-light text-center">&copy; {new Date().getFullYear()} Integrated Livestock Delivery Service </p><p className="font-light text-center">All Rights Reserved.</p>
         </div>
